@@ -86,3 +86,45 @@ Rj45::Rj45(rj45_port_type_t rj45_port_type_,
 
     }
 }
+
+/**
+ * @brief Set the the RJ45 pin number passed as argument to HIGH level.
+ *        This is done for an RJ45 port defined as SENDER.
+ * 
+ * @param rj45_pin_ 
+ */
+void Rj45::set_rj45_pin(uint8_t rj45_pin_) {
+    digitalWrite(rj45_pin[rj45_pin_ - 1], HIGH);
+}
+
+/**
+ * @brief Clear the RJ45 pin number passed as argument (pin = LOW).
+ *        This is done for an RJ45 port defined as SENDER.
+ * 
+ * @param rj45_pin_ 
+ */
+void Rj45::clear_rj45_pin(uint8_t rj45_pin_) {
+    digitalWrite(rj45_pin[rj45_pin_ - 1], LOW);
+}
+
+/**
+ * @brief Reads the value on the RJ45 pin passed as argument.
+ *        This is done for an RJ45 port defined as RECEIVER.
+ * 
+ * @param rj45_pin_ 
+ * @return uint8_t 
+ */
+uint8_t Rj45::read_rj45_pin(uint8_t rj45_pin_) {
+    return(digitalRead(rj45_pin[rj45_pin_ - 1]));
+}
+
+/**
+ * @brief Get the microcontroler pin number affected to the RJ45 pin.
+ *        The pin is read from the pin array.
+ * 
+ * @param index 
+ * @return uint8_t 
+ */
+uint8_t Rj45::get_rj45_pin_by_index(uint8_t index) {
+    return  rj45_pin[index];
+}

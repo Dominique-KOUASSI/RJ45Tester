@@ -44,7 +44,10 @@ class Rj45 {
             uint8_t rj45_pin7_num,
             uint8_t rj45_pin8_num);
 
-
+        void set_rj45_pin(uint8_t rj45_pin_);
+        void clear_rj45_pin(uint8_t rj45_pin_);
+        uint8_t read_rj45_pin(uint8_t rj45_pin_);
+        uint8_t get_rj45_pin_by_index(uint8_t index);
 
 };
 #endif // RJ45_H
